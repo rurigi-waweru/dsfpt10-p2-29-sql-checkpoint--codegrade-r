@@ -42,8 +42,10 @@ This checkpoint will test the resulting data each of your SQL queries generate. 
 
 In the cell below we import relevant libraries.
 # Run this cell without changes
+``` python
 import sqlite3
 import pandas as pd
+```
 In the cell below we... 
 - Open up a connection to the SQLite database and store the connection in a variable called `conn`
 - Initialize a SQLite cursor object with the variable name `cursor`.
