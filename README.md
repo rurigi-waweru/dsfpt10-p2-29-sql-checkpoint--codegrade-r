@@ -41,29 +41,46 @@ The tables of interest for this checkpoint will be:
 This checkpoint will test the resulting data each of your SQL queries generate. For each requirement, your query should be written as a string, and assigned to the requested variable name. The tests do not inspect the casing or formatting of your SQL query. 
 
 In the cell below we import relevant libraries.
-# Run this cell without changes
+
 ``` python
+# Run this cell without changes
 import sqlite3
 import pandas as pd
 ```
+
 In the cell below we... 
 - Open up a connection to the SQLite database and store the connection in a variable called `conn`
 - Initialize a SQLite cursor object with the variable name `cursor`.
+
+
+``` python
 # Run this cell without changes
 northwind_path = 'Northwind.sqlite'
+```
 
+```python
 # Open up a connection
 conn = sqlite3.connect(northwind_path)
+```
+
+``` python
 # Initialize a cursor
 cursor = conn.cursor()
+```
+
 **Below is an Entity Relationship Diagram for the Northwind Database**
 
 > The text is quite small in the below image. Here is a [link](https://curriculum-content.s3.amazonaws.com/data-science/images/Northwind_ERD.png) to the raw image file, where the text is slightly larger.
+
 ![Northwind ERD](https://curriculum-content.s3.amazonaws.com/data-science/images/Northwind_ERD.png)
+
+
 ### Table Names
 
 Below, we use `pd.read_sql` to output the table names in the SQLite database. 
 When writing your queries, you should use the table names as listed below.
+
+``` python
 # Run this cell without changes
 table_name_query = """SELECT name 
                       AS 'Table Names' 
@@ -71,6 +88,8 @@ table_name_query = """SELECT name
                       WHERE type='table';"""
 
 pd.read_sql(table_name_query, conn)
+```
+
 ## 1. Select an entire table.
 
 In a string variable named `first_query`, write a SQL query that returns all rows and columns from the `product` table.
@@ -87,7 +106,9 @@ When passed into `pd.read_sql` this query should return a dataframe with a head 
 # CodeGrade step1
 # Replace None with appropriate code
 
+``` python
 first_query = """SELECT * FROM Product;"""
+```
 
 # Use the line below to check your query's output
 pd.read_sql(first_query, conn).head()
